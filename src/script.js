@@ -3,6 +3,8 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 
+
+
 /**
  * Base
  */
@@ -14,19 +16,22 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
-scene.background = new THREE.Color('teal')
 
 
 /**
  * Textures
  */
 const textureLoader = new THREE.TextureLoader()
-// const matcapTexture = textureLoader.load('/textures/matcaps/8.png');
+const matcapTexture = textureLoader.load('/textures/matcaps/8.png');
 const htmlTexture = textureLoader.load('/textures/portfolio/html.png')
 const cssTexture = textureLoader.load('/textures/portfolio/css.png')
 const jsTexture = textureLoader.load('/textures/portfolio/js.png')
-const angularTexture = textureLoader.load('/textures/portfolio/angular.png')
+const angularTexture = textureLoader.load('/textures/portfolio/angular.png');
+const bgTexture = textureLoader.load('/textures/portfolio/bg.jpg');
 
+scene.background = new THREE.Color('teal')
+
+scene.background = bgTexture;
 
 
 
@@ -120,7 +125,7 @@ const htmlGeometry = new THREE.BoxGeometry(1, 1, 1);
     const htmlMaterial = new THREE.MeshBasicMaterial();
     htmlMaterial.map = htmlTexture;
 
-    for(let i = 0; i < 20; i++){
+    for(let i = 0; i < 30; i++){
 
         const donut = new THREE.Mesh(htmlGeometry, htmlMaterial);
 
@@ -144,7 +149,7 @@ const cssGeometry = new THREE.BoxGeometry(1, 1, 1);
     const cssMaterial = new THREE.MeshBasicMaterial();
     cssMaterial.map = cssTexture;
 
-    for(let i = 0; i < 20; i++){
+    for(let i = 0; i < 30; i++){
 
         const donut = new THREE.Mesh(cssGeometry, cssMaterial);
 
@@ -168,7 +173,7 @@ const jsGeometry = new THREE.BoxGeometry(1, 1, 1);
     const jsMaterial = new THREE.MeshBasicMaterial();
     jsMaterial.map = jsTexture;
 
-    for(let i = 0; i < 20; i++){
+    for(let i = 0; i < 30; i++){
 
         const donut = new THREE.Mesh(jsGeometry, jsMaterial);
 
@@ -192,7 +197,7 @@ const angularGeometry = new THREE.BoxGeometry(1, 1, 1);
     const angularMaterial = new THREE.MeshBasicMaterial();
     angularMaterial.map = angularTexture;
 
-    for(let i = 0; i < 20; i++){
+    for(let i = 0; i < 30; i++){
 
         const donut = new THREE.Mesh(angularGeometry, angularMaterial);
 
@@ -263,7 +268,7 @@ const cursor = {
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 1
 camera.position.y = 1
-camera.position.z = 5
+camera.position.z = 7
 scene.add(camera)
 
 // Controls
@@ -274,15 +279,18 @@ controls.autoRotate = true;
 
 
 //Light;
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(ambientLight)
+// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+// scene.add(ambientLight)
+
+// const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff, 0.3)
+// scene.add(hemisphereLight);
 
 
-const pointLight = new THREE.PointLight(0xffffff, 0.5);
-pointLight.position.x = 2;
-pointLight.position.y = 3;
-pointLight.position.z = 4;
-scene.add(pointLight);
+// const pointLight = new THREE.PointLight(0xffffff, 0.5);
+// pointLight.position.x = 2;
+// pointLight.position.y = 3;
+// pointLight.position.z = 4;
+// scene.add(pointLight);
 
 /**
  * Renderer
