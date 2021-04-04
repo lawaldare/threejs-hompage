@@ -14,6 +14,7 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
+scene.background = new THREE.Color('teal')
 
 
 /**
@@ -56,9 +57,10 @@ fontLoader.load(
         )
 
         textGeometry.center();
-        const material = new THREE.MeshStandardMaterial({color: '#1A44B2'});
+        const material = new THREE.MeshNormalMaterial();
         // material.map = doorColorTexture;
         const text = new THREE.Mesh(textGeometry, material);
+        text.position.y = 0.75
         scene.add(text);        
     }
 )
@@ -81,9 +83,9 @@ fontLoader.load(
         )
 
         textGeometry.center();
-        const material = new THREE.MeshStandardMaterial({color: '#1A44B2'});
+        const material = new THREE.MeshNormalMaterial();
         const text = new THREE.Mesh(textGeometry, material);
-        text.position.y = -0.75
+        // text.position.y = -0.75
         scene.add(text);
 
     }
@@ -106,9 +108,9 @@ fontLoader.load(
             }
         )
         textGeometry.center();
-        const material = new THREE.MeshStandardMaterial({color: '#1A44B2'});
+        const material = new THREE.MeshNormalMaterial();
         const text = new THREE.Mesh(textGeometry, material);
-        text.position.y = -1.5
+        text.position.y = -0.75;
         scene.add(text);
     }
 )
