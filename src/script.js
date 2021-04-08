@@ -116,6 +116,7 @@ fontLoader.load(
         const material = new THREE.MeshNormalMaterial();
         const text = new THREE.Mesh(textGeometry, material);
         text.position.y = -0.75;
+        // text.rotation.x = Math.PI * 0.5;
         scene.add(text);
     }
 )
@@ -333,8 +334,8 @@ const tick = () =>
     // camera.rotation.y = Math.sin(cursor.y * elapsedTime) * 2;
     // camera.position.x = Math.sin(elapsedTime * Math.PI);
     // camera.position.z = Math.cos(elapsedTime * Math.PI);
-    camera.position.x = Math.sin(elapsedTime * 0.7);
-    camera.position.y = Math.cos(elapsedTime * 0.7);
+    // camera.position.x = Math.sin(elapsedTime * 0.7);
+    // camera.position.y = Math.cos(elapsedTime * 0.7);
 
     
 
