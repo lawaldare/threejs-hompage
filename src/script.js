@@ -3,6 +3,12 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 
+const htmlCubeArray = [];
+const cssCubeArray = [];
+const jsCubeArray = [];
+const angularCubeArray = [];
+
+
 
 
 /**
@@ -142,6 +148,8 @@ const htmlGeometry = new THREE.BoxGeometry(1, 1, 1);
 
         scene.add(donut);
 
+        htmlCubeArray.push(donut);
+
     }
 
 //CSS CUBES;
@@ -165,6 +173,9 @@ const cssGeometry = new THREE.BoxGeometry(1, 1, 1);
         donut.scale.set(scale, scale, scale);
 
         scene.add(donut);
+
+        cssCubeArray.push(donut);
+
 
     }
 
@@ -190,6 +201,9 @@ const jsGeometry = new THREE.BoxGeometry(1, 1, 1);
 
         scene.add(donut);
 
+        jsCubeArray.push(donut);
+
+
     }
 
 //Angular cubes;
@@ -213,6 +227,9 @@ const angularGeometry = new THREE.BoxGeometry(1, 1, 1);
         donut.scale.set(scale, scale, scale);
 
         scene.add(donut);
+
+        angularCubeArray.push(donut);
+
 
     }
         
@@ -336,6 +353,27 @@ const tick = () =>
     // camera.position.z = Math.cos(elapsedTime * Math.PI);
     // camera.position.x = Math.sin(elapsedTime * 0.7);
     // camera.position.y = Math.cos(elapsedTime * 0.7);
+
+    htmlCubeArray.forEach((donut) => {
+        donut.rotation.x = donut.rotation.x + 0.02;
+        donut.rotation.z = donut.rotation.z - 0.02;
+        donut.rotation.y = donut.rotation.z + 0.02;
+      });
+      cssCubeArray.forEach((donut) => {
+        donut.rotation.x = donut.rotation.x + 0.02;
+        donut.rotation.z = donut.rotation.z - 0.02;
+        donut.rotation.y = donut.rotation.z + 0.02;
+      });
+      jsCubeArray.forEach((donut) => {
+        donut.rotation.x = donut.rotation.x + 0.02;
+        donut.rotation.z = donut.rotation.z - 0.02;
+        donut.rotation.y = donut.rotation.z + 0.02;
+      });
+      angularCubeArray.forEach((donut) => {
+        donut.rotation.x = donut.rotation.x + 0.02;
+        donut.rotation.z = donut.rotation.z - 0.02;
+        donut.rotation.y = donut.rotation.z + 0.02;
+      });
 
     
 
